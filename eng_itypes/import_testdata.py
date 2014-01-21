@@ -2,17 +2,15 @@
 Import simple test data for testing getting itemrec
 """
 import predictionio
-
-APP_KEY = "Y5SZlskydmF4f02ro3fqmBYVA3fb3wpJ26LSwWIEMXzJhXXPvbKvPLka5DpFlkoc"
-API_URL = "http://localhost:8000"
+import argparse
 
 MIN_VERSION = '0.5.0'
 if predictionio.__version__ < MIN_VERSION:
     err = "Require PredictionIO Python SDK version >= %s" % MIN_VERSION
     raise Exception(err)
 
-if __name__ == "__main__":
-    client = predictionio.Client(APP_KEY, 1, API_URL)
+def import_testdata(app_key, api_url):
+    client = predictionio.Client(app_key, 1, api_url)
 
     client.create_user("u0")
     client.create_user("u1")
@@ -71,6 +69,21 @@ if __name__ == "__main__":
 
     client.close()
     
+def main():
+    parser = argparse.ArgumentParser(description="some description here..")
+    parser.add_argument('--appkey', default='invalid_app_key')
+    parser.add_argument('--apiurl', default="http://localhost:8000")
+
+    args = parser.parse_args()
+    print args
+
+    import_testdata(
+        app_key=args.appkey,
+        api_url=args.apiurl)
+
+if __name__ == '__main__':
+    main()
+
 
 
 
