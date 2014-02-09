@@ -1,3 +1,5 @@
+# directly inject custom item data into mongo
+
 import pymongo
 from pymongo import MongoClient
 import datetime
