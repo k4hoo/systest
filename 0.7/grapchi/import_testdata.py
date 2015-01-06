@@ -25,23 +25,29 @@ def import_testdata(app_key, api_url):
     ##
     client.identify("u0")
     client.record_action_on_item("rate", "i0", { "pio_rate": 2 })
+    client.record_action_on_item("rate", "i0", { "pio_rate": 3 })
+    client.record_action_on_item("rate", "i0", { "pio_rate": 1 })
     client.record_action_on_item("rate", "i1", { "pio_rate": 3 })
     client.record_action_on_item("rate", "i2", { "pio_rate": 4 })
     
     client.identify("u1")
     client.record_action_on_item("rate", "i2", { "pio_rate": 4 })
     client.record_action_on_item("rate", "i3", { "pio_rate": 1 })
+    client.record_action_on_item("rate", "i3", { "pio_rate": 2 })
 
     client.identify("u2")
     client.record_action_on_item("rate", "i1", { "pio_rate": 2 })
     client.record_action_on_item("rate", "i2", { "pio_rate": 1 })
+    client.record_action_on_item("rate", "i2", { "pio_rate": 2 })
     client.record_action_on_item("rate", "i3", { "pio_rate": 3 })
 
     client.identify("u3")
     client.record_action_on_item("rate", "i0", { "pio_rate": 5 })
+    client.record_action_on_item("rate", "i0", { "pio_rate": 3 })
     client.record_action_on_item("rate", "i1", { "pio_rate": 3 })
+    client.record_action_on_item("rate", "i1", { "pio_rate": 4 })
     client.record_action_on_item("rate", "i3", { "pio_rate": 2 })
-
+    
     client.close()
     
 def main():
