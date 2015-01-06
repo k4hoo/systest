@@ -100,6 +100,6 @@ if __name__ == '__main__':
   client = predictionio.EventClient(
     access_key=args.access_key,
     url=args.url,
-    threads=20,
+    threads=50,
     qsize=500)
   import_events(client)
